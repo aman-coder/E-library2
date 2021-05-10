@@ -1,0 +1,47 @@
+@import './resets';
+@import './variables';
+@import './functions';
+@import './mixins';
+@import './users/login&Register';
+@import './books/booklist';
+
+body{
+    
+    background-color: $black;
+    color: $text-color;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1;
+}
+.main
+{
+    @include flexboxCenter(row);
+    width: 80%;
+    margin: 0 auto;
+
+   #{&}__paragraph1 {
+        font-weight: weight(regular);
+
+        &:hover{
+            color: pink;
+        }
+    }
+
+    #{&}__paragraph2{
+        @extend .main__paragraph1;
+
+        &:hover {
+            color: rgb(115, 177, 170);;
+        }
+    }
+
+    @include mobile{
+        flex-direction: column;
+    }
+
+
+}
+.light{
+    @include theme($light-theme: true);
+}
+

@@ -1,0 +1,14 @@
+// for the change of weight of font
+@function weight($weight-name){
+    @return map-get($font-weights, $weight-name );
+}
+// for color to change
+@function set-text-color($color){
+    @if (lightness($color) > 40%){
+        @return #000;
+    }
+    @else{
+        @return #ffffff;
+    }
+}
+
