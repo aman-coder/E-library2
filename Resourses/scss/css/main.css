@@ -5,7 +5,7 @@ html * {
           box-sizing: border-box;
 }
 
-.login {
+.logins {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20,7 +20,7 @@ html * {
   overflow: hidden;
 }
 
-.login > .login__form-box {
+.logins > .logins__form-box {
   margin: 5% auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -40,7 +40,7 @@ html * {
   overflow: hidden;
 }
 
-.login > .login__button-box {
+.logins > .logins__button-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -55,7 +55,7 @@ html * {
   border-radius: 30px;
 }
 
-.login > .login__toggle-btn {
+.logins > .logins__toggle-btn {
   padding: 10px 30px;
   cursor: pointer;
   background: transparent;
@@ -64,7 +64,7 @@ html * {
   position: relative;
 }
 
-.login #btn {
+.logins #btn {
   top: 0;
   left: 0;
   position: absolute;
@@ -77,7 +77,7 @@ html * {
   transition: .5s;
 }
 
-.login > .login__input-group {
+.logins > .logins__input-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -89,7 +89,7 @@ html * {
   transition: .5s;
 }
 
-.login > .login__input-field {
+.logins > .logins__input-field {
   width: 100%;
   padding: 10px 0;
   margin: 5px auto;
@@ -101,7 +101,7 @@ html * {
   background: transparent;
 }
 
-.login > .login__submit-btn {
+.logins > .logins__submit-btn {
   width: 85%;
   padding: 10px 30px;
   cursor: pointer;
@@ -114,22 +114,22 @@ html * {
   outline: none;
 }
 
-.login__checkbox {
+.logins__checkbox {
   margin: 30px 10px 30px 0;
 }
 
-.login span {
+.logins span {
   color: #777;
   font-size: 12px;
   bottom: 68px;
   position: absolute;
 }
 
-.login #login {
+.logins #login {
   left: 50px;
 }
 
-.login #register {
+.logins #register {
   left: 450px;
 }
 
