@@ -1,2 +1,3 @@
-* /vender
-*/ Resources
+#**/vender
+#**/config.php
+#**/Resources/scss/css
