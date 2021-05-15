@@ -26,10 +26,6 @@ class Router
 
         throw new Exception('no path is found');
     } 
-    public function renderview(){
-
-        
-    }
 }
 
 ?>

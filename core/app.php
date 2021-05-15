@@ -19,5 +19,8 @@ class App
         return static::$registry[$key];
     }
 
+   
+
 }
+// die(var_dump($registry));
 ?>

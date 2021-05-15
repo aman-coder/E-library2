@@ -13,6 +13,8 @@
     <?php foreach($books as $book): ?>
     <li>
     <h2>Name:-<?= htmlspecialchars($book->b_name); ?></h2>
+    <h2>Name:-<?= htmlspecialchars($book->auth_name); ?></h2>
+    <img src="<?= htmlspecialchars($book->b_img); ?>" alt="">
     </li>
     <?php endforeach;?>
      </ul>

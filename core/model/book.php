@@ -1,5 +1,5 @@
 <?php
-class book extends QueryBuilder
+class Book extends QueryBuilder
 {
     
 }
