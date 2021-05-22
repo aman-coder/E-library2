@@ -2,7 +2,7 @@
 <?php foreach($books as $book): ?>
 <div class="booklist__cards">
 <div class="booklist__image">
-<img src="<?= "Resources/images/".htmlspecialchars($book->b_img);?>)" alt="avatar">
+<img src="Resourses\images/<?= htmlspecialchars($book->b_img);?>)" alt="Responsive Image"/>
 </div>
 <div class="booklist__name">
 <h4>Name:<?= htmlspecialchars($book->b_name);?></h4>
@@ -11,7 +11,7 @@
 
 </div>
 <div class="booklist__des">
-<a href="" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Read More</a>
+<a href="bookreading?b_id=<?= htmlspecialchars($book->b_id); ?>" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Read More</a>
 </div>
 </div>
 <?php endforeach; ?>

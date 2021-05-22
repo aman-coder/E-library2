@@ -1,6 +1,7 @@
 
 <?php
  require 'vendor/autoload.php';
+ require 'controllers/common/sets_ession.php';
  require 'core/bootstrap.php';
 
  require __dir__.'/views/common/head.php';

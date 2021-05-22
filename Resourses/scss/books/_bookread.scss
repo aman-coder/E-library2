@@ -1,0 +1,27 @@
+.row {  
+    display: flex;
+   padding: 10px;
+    flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      margin:auto;
+  }
+  .side {
+    flex:20%;
+    padding: 4px;
+    overflow-x: hidden;
+  }
+  .main1 {
+    flex:40%;
+    background-color: rgba(231, 195, 195, 0.632);
+    padding: 5px;
+    overflow-x: hidden;
+    border-radius: 50px;
+  }
+  @media screen and (max-width: 600px) {
+    .row, .main1 {   
+      flex-direction: column;
+  
+      
+    }
+  }

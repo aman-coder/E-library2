@@ -15,7 +15,8 @@
   &__cards:hover{
     box-shadow: 2px 2px 10px black;
   }
-  &__image img{
+ .booklist &__image img{
+    height: 100%;
     width: 100%;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
@@ -28,4 +29,7 @@
     text-align: center;
     padding: 3px;
   }
+  @include mobile{
+    flex-direction: column;
 }
+  }

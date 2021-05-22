@@ -1,14 +1,13 @@
 <?php
-
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    if(isset($_POST['login']))
+    if(isset($_POST['login1']))
     {
     //Sanitise post data
     $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
 
     $u_email = trim($_POST['u_email']);
-    $passowrd = trim($_POST['password']);
+    $password = trim($_POST['password']);
 
     //error placeholder
     $emailErr = "";
@@ -18,21 +17,39 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     if(empty($u_email))
     {
         $emailErr = "Please enter a email";
-        $_SESSION["emailerr"] = $emailErr;
+        $_SESSION['emailerr'] = $emailErr;
     }
 
     //validate passwrord
-    if(empty($passowrd))
+    if(empty($password))
     {
         $passErr = "Please enter a password";
-        $_SERVER = $passErr;
+        $_SESSION['passerr'] = $passErr;
     }
 
     //check if all error are empty
-    if(empty($passErr) && empty($passErr))
+    if(empty($emailErr) && empty($passErr))
     {
-        $stmt=App::get('Users')->LoginUser($u_email,$password);
-              
+        $password = $password;
+        $logins = App::get('Users')->EmailUser($u_email);
+        $logins->execute();
+        $count = $logins->rowCount();
+        $row = $logins->fetch(PDO::FETCH_OBJ);
+        if($count > 0){
+            $pass = $row->password;
+            if(password_verify($password,$pass)){
+                header("location:/booklist");
+                $_SESSION['username']=$row->u_name;
+				$_SESSION['role'] =$row->role;
+				$_SESSION['email'] = $row->u_email;
+				$_SESSION['u_id'] =$row->u_id;
+				$_SESSION['token'] =$row->token;
+            }else{
+                echo "password doesnot match";
+            }
+        } else { 
+            echo "email doesnot match";
+        }           
     }
 
 }

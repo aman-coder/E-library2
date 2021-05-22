@@ -21,7 +21,11 @@ class Users extends QueryBuilder
       $insert = parent::insert($this->table, $column, $values);
       $insert->execute();
   } 
-  public function LoginUser($u_email, $password){
-  }
+  public function EmailUser($u_email){
+    $column = array('u_email');
+    $values=[
+      ':email'=>"'".$u_email."'"];
+    return parent::select($this->table, $column, $values);
+ }
 }
 

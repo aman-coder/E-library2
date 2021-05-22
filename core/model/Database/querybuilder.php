@@ -21,13 +21,12 @@ class QueryBuilder
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_OBJ);
     }
-    public function select($table, $values, $conditional)
+    public function select($table, $column, $conditional)
      {
-        //  $column = implode(',', $column);
-         $values = implode(',', $values);
-         $stmt = $this->pdo->prepare("SELECT * FROM ${table} WHERE (${values}) = (${conditional})");
-        $stmt->execute();
-         return $stmt->fetch(PDO::FETCH_OBJ);
+         $column = implode(',', $column);
+         $conditional = implode(',', $conditional);
+         $stmt = $this->pdo->prepare("SELECT * FROM ${table} WHERE (${column}) = (${conditional})");
+         return $stmt;
      }
 
     public function insert($table, $column, $values)
@@ -35,8 +34,28 @@ class QueryBuilder
     $column = implode(',', $column);
     $values = implode(',', $values);
     $sql = $this->pdo->prepare("INSERT INTO $table(${column})  VALUES (${values})");
-        return $sql;
+     return $sql;
      }
+
+     public function update($table, $upda, $bid, $target)
+     {
+        $tt = implode(',', $target);
+        $str=',';
+        foreach ($upda as $key => $value){
+            $str=$str.$key."=${value},";
+        }
+        $str=trim($str,',');
+        
+     return $this->pdo->prepare("UPDATE $table SET $str WHERE (${bid}) = (${tt}) ");
+            
+            
+      }
+
+      public function DeleteAll($table,$bid,$target){
+          $tt = implode(',',$target);
+         $sql =  $this->pdo->prepare("DELETE FROM $table WHERE (${bid}) = (${tt})");
+         $sql->execute();
+      }
      
 }
 

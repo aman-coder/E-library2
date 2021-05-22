@@ -5,15 +5,18 @@
 @import './users/login&Register';
 @import './users/admin.registration.view';
 @import './books/booklist';
+@import './books/bookadd';
+@import './books/bookread';
 
 
 body{
     
-    background-color: $black;
+    background-color: rosybrown;
     color: $text-color;
-    height: 100%;
+    // height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1;
+    
 }
 .main
 {
@@ -44,6 +47,6 @@ body{
 
 }
 .light{
-    @include theme($light-theme: true);
+    @include theme($light-theme: false);
 }
 
