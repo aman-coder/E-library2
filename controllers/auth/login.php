@@ -39,10 +39,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             $pass = $row->password;
             if(password_verify($password,$pass)){
                 header("location:/booklist");
+                $_SESSION['uid'] =$row->u_id;
                 $_SESSION['username']=$row->u_name;
 				$_SESSION['role'] =$row->role;
 				$_SESSION['email'] = $row->u_email;
-				$_SESSION['u_id'] =$row->u_id;
 				$_SESSION['token'] =$row->token;
             }else{
                 echo "password doesnot match";

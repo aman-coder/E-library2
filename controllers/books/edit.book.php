@@ -14,11 +14,11 @@ if(isset($_GET['b_id'])){
         $count = trim($_POST['count']);
         $booknameError = "";
         $authnameError = "";
-        $imgError = "";
+      
         $descriptionError = "";
-        $counterror = "";
+        $countError = "";
         $nameValidation = "/^[a-zA-Z ]*$/";
-         // to declare the things into here and later on we us these
+
        $file = $_FILES['b_img'];
 
        $fileName = $_FILES['b_img']['name'];
@@ -42,8 +42,8 @@ if(isset($_GET['b_id'])){
         }
         if(empty($auth_name))
         {
-            $auhtnameError = "Please enter auth name";
-            $_SESSION['auth'] = $auhtnameError;
+            $authnameError = "Please enter auth name";
+            $_SESSION['auth'] = $authnameError;
         }elseif(!preg_match($nameValidation, $auth_name)){
             $authnameError = "Name only contain letters";
             $_SESSION['auth'] = $authnameError;
@@ -55,7 +55,6 @@ if(isset($_GET['b_id'])){
                 $fileNameNew = uniqid('', true).".".$fileActualExt;
                   $path = "Resourses\images/";
                 $fileDestination = $path.$fileNameNew;
-                move_uploaded_file($fileTmpName,$fileDestination);
             }else{
                 echo "File to big";
             }
@@ -71,10 +70,6 @@ if(isset($_GET['b_id'])){
             $descriptionError = "Please enter description";
             $_SESSION['des'] = $descriptionError;
         }
-        // elseif(!preg_match($nameValidation, $description)){
-        //     $descriptionError = "Name only contain letters";
-        //     $_SESSION['des'] = $descriptionError;
-        // }
         if(empty($count))
         {
             $countError = "Please enter number of copies you want to publish";
@@ -83,12 +78,13 @@ if(isset($_GET['b_id'])){
        
         
             //check if the name is there or not
-            if(empty($booknameError) && empty($authnameError) && empty($imgError) && empty($descriptionError) && empty($counterror)){
+            // if(empty($booknameError) && empty($authnameError) && empty($descriptionError) && empty($countError)){
     
                 $rr = App::get('Books')->UpdateBook($b_name,$auth_name,$fileNameNew,$description,$count,$b_id);
                 $rr->execute([':b_name'=>$b_name,':auth_name'=>$auth_name,'b_img'=>$fileNameNew,':description'=>$description,':count'=>$count]);
+                move_uploaded_file($fileTmpName,$fileDestination);
                 header("location:/booklist");
-                }
+                // }
             
         }
 require './views/books/book.edit.view.php';

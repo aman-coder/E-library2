@@ -8,6 +8,7 @@ class Users extends QueryBuilder
     $this->column = array('u_name', 'u_email', 'password', 'role', 'token','status');
     $this->values = array('name', 'email', 'password');
   }
+ 
   public function RegisterUser($u_name,$u_email,$password,$role,$token,$status){
       $values=[
           ':name'=>"'".$u_name."'",

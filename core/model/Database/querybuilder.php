@@ -21,12 +21,25 @@ class QueryBuilder
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_OBJ);
     }
+    public function sort($table,$limit,$offset)
+    {
+        $statement = $this->pdo->prepare("select * from {$table} LIMIT {$offset},{$limit}");
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_OBJ);
+    }
     public function select($table, $column, $conditional)
      {
          $column = implode(',', $column);
          $conditional = implode(',', $conditional);
          $stmt = $this->pdo->prepare("SELECT * FROM ${table} WHERE (${column}) = (${conditional})");
          return $stmt;
+     }
+
+     public function search($table,$cname,$cnam,$values){
+        $cname1 = implode(',', $cname);
+        $cname2 = implode(',', $cnam);
+        $sr = $this->pdo->prepare("SELECT * FROM ${table} WHERE (${cname1}) LIKE '%".$values."%' OR (${cname2}) LIKE '%".$values."%' ");
+        return $sr;
      }
 
     public function insert($table, $column, $values)

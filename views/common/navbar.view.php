@@ -19,16 +19,29 @@
           <?= $_SESSION['username'];?>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="adminform">Admin Ragistration</a></li>
             <li><a class="dropdown-item" href="logout">logout</a></li>
             <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="adminform">Admin Ragistration</a></li>
             <li><a class="dropdown-item" href="addbook">AddBook</a></li>
+            <li><a class="dropdown-item" href="profile">Profile</a></li>
+            <li><a class="dropdown-item" href="userlist">Userlist</a></li>
+            
           </ul>
         </li>
+        <form class="nav-item dropdown" name="sort">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Sorting         </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">A-Z</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Z-A</a></li>
+          </ul>
+        </form>
+        
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form class="d-flex" method="POST" action="/search" name = "search">
+        <input class="form-control me-2" type="search" placeholder="Search" name="name" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit" name="search">Search</button>
       </form>
     </div>
   </div>

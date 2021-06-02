@@ -1,3 +1,7 @@
+<section class="edit">
+    <div class="preview">
+    <img src="Resourses\images/<?=htmlspecialchars($bookedit->b_img);?>" style=" height:600px; box-shadow: 2px 2px 10px black;" alt="">
+    </div>
 <div class="container">
 <div class="container__wrapper">
 <div class="container__titleofform">
@@ -15,7 +19,7 @@
 </p>
 <p>
 <label>Cover Image:</label>
-<input value="Resourses\images/<?=htmlspecialchars($bookedit->b_img);?>" type="file" name="b_img" id="b_img">
+<input type="file" name="b_img" id="b_img">
 </p>
 <p>
 <label>Count:</label>
@@ -23,7 +27,7 @@
 </p>
 <p class="description">
 <label>Description:</label>
-<textarea name="description" value="<?=htmlspecialchars($bookedit->description);?>" id="description" rows="5"></textarea>
+<textarea name="description" id="description" rows="5"><?=htmlspecialchars($bookedit->description);?></textarea>
 </p>
 <p class="submit-btn">
 <button name="Update" value="Upload">Submit</button>
@@ -32,3 +36,4 @@
 </div>
 </div>
 </div>
+</section>

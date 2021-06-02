@@ -84,9 +84,9 @@
     
     
         //check if the name is there or not
-        if(empty($booknameError) && empty($authnameError) && empty($descriptionError) && empty($counterror) && empty($presentbname) && empty($presentauthname)){
+        // if(empty($booknameError) && empty($authnameError) && empty($descriptionError) && empty($counterror) && empty($presentbname) && empty($presentauthname)){
             App::get('Books')->InsertBook($b_name,$auth_name,$fileNameNew,$description,$count);
             header("location:/booklist");
-            }
+            // }
         }
     }

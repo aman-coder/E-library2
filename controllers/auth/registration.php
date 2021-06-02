@@ -1,19 +1,21 @@
     <?php
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
-
-
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         if(isset($_POST['registration'])){
+            //checking for the login page
+    if(isset($_SESSION['email']) && ($_SESSION['role']=='admin')){
+        $role='admin';
+        // header("location:/booklist");
+    }else{
+        $role='reader';
+        // header("location:/");
+    }
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
         $u_name = trim($_POST['u_name']);
         $u_email = trim($_POST['u_e-mail']);
         $password = trim($_POST['password']);
         $re_password = trim($_POST['re_password']);
-        $role = 'reader';
         $status = 'inactive';
         $usernameError = "";
         $emailError = "";
@@ -84,9 +86,13 @@
             //token to be created randomly
             $token=bin2hex(random_bytes(15));
             //Register user from model function
-            App::get('Users')->RegisterUser($u_name ,$u_email,$password,$role,$token,$status);
-            header("location:/booklist");
-        }
+           App::get('Users')->RegisterUser($u_name ,$u_email,$password,$role,$token,$status);
+            if(App::get('Sendmail')->Verifymail($token)){
+                  
+           
+           
+            header("location:/");
+        }}
 
     }
     }

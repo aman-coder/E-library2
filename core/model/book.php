@@ -21,6 +21,22 @@ class Book extends QueryBuilder
        return parent::select($this->table,$column,$values);
      }
 
+     public function SearchBox($string){
+       $column = array('b_name');
+       $c2 = array('auth_name');
+       return parent::search($this->table,$column,$c2,$string);
+       }
+
+       public function IssueBook($u_id,$b_id,$issue){
+         $column = array('b_id','u_id','issue');
+         $values = [':b_id'=>"'".$b_id."'",
+         ':u_id' => "'".$u_id."'",
+         ':issue'=>"'".$issue."'"];
+         $issue= parent::insert('has_book',$column,$values);
+         $issue->execute();
+
+       }
+
     public function InsertBook($b_name,$auth_name,$b_img,$description,$count){
         $values=[
             ':b_name'=>"'".$b_name."'",

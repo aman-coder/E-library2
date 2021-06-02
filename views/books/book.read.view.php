@@ -13,7 +13,24 @@
     <p style="text-align:justify; padding:8px"><?= htmlspecialchars($users->description)?></p>
 			<a href="bookedit?b_id=<?php echo($users->b_id); ?>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit</a>
 			
-			<button onclick="document.getElementById('id01').style.display='block'" class="btn btn-danger btn-lg active">Delete</button></center></div>
+			<button onclick="document.getElementById('id01').style.display='block'" class="btn btn-danger btn-lg active">Delete</button></center>
+			
+			<form action='/issuebookcont' method="POST" name="issue">
+              <p><span style='color: orange';>MARK AS :</span> 
+                <label>
+              <input name="bid" value='<?= $users->b_id;?>' hidden></label>
+              <label style='margin-right:1rem;' >
+                  <input id = 'input2' name='action' value='wishlisted' type='radio'/>
+                  <span>Add to Wishlist</span>
+              </label>
+              <label style='margin-right:1rem;'>
+                  <input id='input3' name='action' value='reading'  type='radio'/>
+                  <span>Issue a Book</span>
+              </label>
+                <button class="btn modal-trigger" type ="submit" name="issue" value="1" style="background-color: orange;">SAVE RESPONSE</button>
+              </p>
+              </form>
+				</div>
 			<div id="id01" class="modal">
 			<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 			<!--modal for deletion confirmation as needed -->
