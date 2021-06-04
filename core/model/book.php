@@ -21,10 +21,10 @@ class Book extends QueryBuilder
        return parent::select($this->table,$column,$values);
      }
 
-     public function SearchBox($string){
+     public function SearchBox($string,$limit,$offset){
        $column = array('b_name');
        $c2 = array('auth_name');
-       return parent::search($this->table,$column,$c2,$string);
+       return parent::search($this->table,$column,$c2,$string,$limit,$offset);
        }
 
        public function IssueBook($u_id,$b_id,$issue){

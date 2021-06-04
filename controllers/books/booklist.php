@@ -17,10 +17,22 @@ $bookf = App::get('database')->selectAll('books');
 $limit = 6;
 $offset=1;
 $offset = ($page-1)*$limit;
-$books = App::get('database')->sort('books',$limit,$offset);
 $totalcount = count($bookf);
 $total_page=ceil($totalcount/$limit);
 $_SESSION['total_page']=$total_page;
+
+if(isset($_POST['A-Z'])){
+	$order = 'b_name ASC';
+}
+elseif(isset($_POST['Z-A'])){
+	$order = 'b_name DESC';
+}
+else{
+	$order = 'b_id DESC';
+}
+
+$books = App::get('database')->fetchlimit('books',$order,$limit,$offset);
+
 require 'views/books/booklist.view.php';
 
 ?>

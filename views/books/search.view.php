@@ -16,3 +16,30 @@
     </div>
     <?php endforeach; ?>
 </section>
+<nav aria-label="Page navigation example" style="display:flex; justify-content:center">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    
+    <?php 
+    $pp=$_SESSION['total_page'];
+    for($i=1;$i<=$pp;$i++): ?>
+     <?php if($i==$page){
+      $active ="active";
+    }else{
+      $active = " ";
+    } ?>
+    <li class="page-item <?php echo "$active";?>"><a class="page-link" href="search?page=<?= $i;?>"><?= $i;?></a></li>
+    <?php endfor; ?>
+    <li class="page-item">
+      <a class="page-link" href="" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>

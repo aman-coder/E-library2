@@ -21,9 +21,9 @@ class QueryBuilder
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_OBJ);
     }
-    public function sort($table,$limit,$offset)
+    public function fetchlimit($table,$order,$limit,$offset)
     {
-        $statement = $this->pdo->prepare("select * from {$table} LIMIT {$offset},{$limit}");
+        $statement = $this->pdo->prepare("select * from {$table} ORDER BY {$order} LIMIT {$offset},{$limit}");
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_OBJ);
     }
@@ -35,10 +35,10 @@ class QueryBuilder
          return $stmt;
      }
 
-     public function search($table,$cname,$cnam,$values){
+     public function search($table,$cname,$cnam,$values,$offset,$limit){
         $cname1 = implode(',', $cname);
         $cname2 = implode(',', $cnam);
-        $sr = $this->pdo->prepare("SELECT * FROM ${table} WHERE (${cname1}) LIKE '%".$values."%' OR (${cname2}) LIKE '%".$values."%' ");
+        $sr = $this->pdo->prepare("SELECT * FROM ${table} WHERE (${cname1}) LIKE '%".$values."%' OR (${cname2}) LIKE '%".$values."%' LIMIT {$offset},{$limit}");
         return $sr;
      }
 

@@ -87,12 +87,9 @@
             $token=bin2hex(random_bytes(15));
             //Register user from model function
            App::get('Users')->RegisterUser($u_name ,$u_email,$password,$role,$token,$status);
-            if(App::get('Sendmail')->Verifymail($token)){
-                  
-           
-           
-            header("location:/");
-        }}
+            App::get('Sendmail')->Verifymail($token);
+                  header("location:/");
+        }
 
     }
     }

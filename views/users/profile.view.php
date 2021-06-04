@@ -9,10 +9,10 @@
 </div>
 <div class="card__content">
 <div class="card__title">
-<h2>htll</h2>
+<h2><?=$_SESSION['username'];?></h2>
 </div>
 <div class="card__snippet">
-<p>hh</p>
+<p><?=$_SESSION['email'];?></p>
 </div>
 <div class="card__readmore">
 <a href="#">delete</a>

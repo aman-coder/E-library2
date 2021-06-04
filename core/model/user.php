@@ -27,6 +27,44 @@ class Users extends QueryBuilder
     $values=[
       ':email'=>"'".$u_email."'"];
     return parent::select($this->table, $column, $values);
- }
+    }
+
+    public function ResetPass($password,$token){
+      $values=[
+       ':password'=>"'".$password."'",
+    ];
+    $target = [
+      ':token'=>"'".$token."'"
+    ];
+    $column = ['password'];
+     $i = 0;
+    $upda = [];
+  $queryArray = array_keys($values);
+    while (isset($column[$i])) {
+      $upda += [$column[$i] => $queryArray[$i]];
+      $i++;
+  }
+     return parent::update($this->table,$upda,'token',$target);
+    
+    }
+    public function VerificationUpdate($token,$status){
+      $values=[
+       ':status'=>"'".$status."'",
+    ];
+    // die(var_dump($role));
+    $target = [
+      ':token'=>"'".$token."'"
+    ];
+    $column = ['status'];
+     $i = 0;
+    $upda = [];
+  $queryArray = array_keys($values);
+    while (isset($column[$i])) {
+      $upda += [$column[$i] => $queryArray[$i]];
+      $i++;
+  }
+     return parent::update($this->table,$upda,'token',$target);
+    
+    }
 }
 

@@ -15,8 +15,8 @@ class Mails extends QueryBuilder{
         return parent::select($this->table,$column,$values);
     }
 
-    public function VerificationUpdate($token,$role,$bid){
-        return parent::update($this->table,$role,$bid,$token);
+    public function VerificationUpdate($token,$role){
+        return parent::update($this->table,$role,$token);
     }
     public function Password($password,$b_id){
         return parent::update($this->table,$password,$b_id,$password);

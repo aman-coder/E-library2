@@ -28,13 +28,13 @@
             
           </ul>
         </li>
-        <form class="nav-item dropdown" name="sort">
+        <form method="POST" class="nav-item dropdown" action="booklist" name="sort">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Sorting         </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">A-Z</a></li>
+            <li><input type='submit' class="dropdown-item" name="A-Z" value="A-Z" ></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Z-A</a></li>
+            <li><input type='submit' class="dropdown-item" name="Z-A" value="Z-A" ></li>
           </ul>
         </form>
         

@@ -23,7 +23,7 @@ class SendMail
         $this->mail->Subject = "Verification link" ;
         $this->mail->isHTML(true);
         $this->mail->SMTPDebug = 0;
-        $this->base_url = "http:/localhost:8080/?token=${token}";
+        $this->base_url = "http://localhost:8080/verifyuser?token=${token}";
         $this->mailContent = 'Hi, <br/> <br/> verification is required for your email address before we migrate to the application.
             <br/> <br/> <a href ="'.$this->base_url.'">Click here to verify.</a>
         ' ;
@@ -36,14 +36,14 @@ class SendMail
         
     }
 
-    public function Resetmail($lastID, $token)
+    public function ResetPassword($token)
     {
         $this->mail->setFrom('youremail@gmail.com', 'E_library');
         $this->mail->addAddress($_POST['email']);
         $this->mail->Subject = "New password link";
         $this->mail->isHTML(true);
         $this->mail->SMTPDebug = 0;
-        $this->base_url = "http://3.6.32.116/resetpassword?hash=${token}&id={$lastID}";
+        $this->base_url = "http://localhost:8080/password?token=${token}";
         $this->mailContent = 'Hi, <br/> <br/> we have sent a link to change your password. Kindly visit the link for updation.
             <br/> <br/> <a href ="'.$this->base_url.'">Click here to reset your password.</a>
         ' ;
