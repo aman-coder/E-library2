@@ -11,7 +11,7 @@ class Book extends QueryBuilder
     public function SelectBook($b_name,$auth_name){
         $column = array('b_name','auth_name');
         $values=[
-          ':email'=>"'".$b_name."'",
+          ':b_name'=>"'".$b_name."'",
           ':auth_name' => "'".$auth_name."'"];
         return parent::select($this->table, $column, $values);
      }
