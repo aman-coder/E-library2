@@ -15,6 +15,9 @@ $router->define([
     'issuebookcont'=>'controllers/books/issuebook.php',
     'resetpassword'=>'controllers/auth/change.Password.php',
     'verifyuser'=>'controllers/auth/verifyuser.php',
+    'userlist'=>'controllers/auth/verifyuser.php',
+    'wishlist'=>'controllers/books/wishlist.php',
+    'reading'=>'controllers/books/reading.php',
     // 'verifymail' => 'controlers/auth/verifyuser@verifyEmail',
     // 'resetpassword' => 'controllers/auth/verifyuser@passwordreset',
     // 'sendverifymail' => 'SendMail@Verifymail',
@@ -28,7 +31,7 @@ $router->define([
     'password' => 'views/users/change.password.view.php',
     'profile' => 'views/users/profile.view.php',
     'log' => 'views/users/login.php',
-    'userlist' => 'views/users/userlists.view.php',
+    'userlistview' => 'views/users/userlists.view.php',
     
     ]);
 

@@ -35,7 +35,7 @@ class QueryBuilder
          return $stmt;
      }
 
-     public function search($table,$cname,$cnam,$values,$offset,$limit){
+     public function search($table,$cname,$cnam,$values,$limit,$offset){
         $cname1 = implode(',', $cname);
         $cname2 = implode(',', $cnam);
         $sr = $this->pdo->prepare("SELECT * FROM ${table} WHERE (${cname1}) LIKE '%".$values."%' OR (${cname2}) LIKE '%".$values."%' LIMIT {$offset},{$limit}");
