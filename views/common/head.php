@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" href="/Resourses/scss/css/main.css">
     <title>e-library</title>
+    <link rel="icon" href="favicon.ico" type="image/ico">
   </head>
   <body class="light">
       <?php require './views/common/navbar.view.php'; ?>

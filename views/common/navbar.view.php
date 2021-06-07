@@ -27,7 +27,8 @@
             <li><a class="dropdown-item" href="adminform">Admin Ragistration</a></li>
             <li><a class="dropdown-item" href="addbook">AddBook</a></li>
             <li><a class="dropdown-item" href="profile">Profile</a></li>
-            <li><a class="dropdown-item" href="userlist">Userlist</a></li>
+            <li><a class="dropdown-item" href="adminlist">Adminlist</a></li>
+            <li><a class="dropdown-item" href="readerlist">Readerlist</a></li>
             
           </ul>
         </li>

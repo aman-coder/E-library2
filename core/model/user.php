@@ -15,6 +15,12 @@ class Users extends QueryBuilder
       ':issue' => "'".$issue."'"];
     return parent::select('has_book', $column, $values);
  }
+ public function UserlistAdmin($role){
+  $column = array('role');
+  $values=[
+    ':role' => "'".$role."'"];
+  return parent::select($this->table, $column, $values);
+}
 
   public function Singledata($u_id){
     $column = array('u_id');

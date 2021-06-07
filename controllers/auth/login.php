@@ -38,12 +38,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         if($count > 0){
             $pass = $row->password;
             if(password_verify($password,$pass)){
+                $status=$row->status;
+                if($status == 'active'){
                 header("location:/booklist");
                 $_SESSION['uid'] =$row->u_id;
                 $_SESSION['username']=$row->u_name;
 				$_SESSION['role'] =$row->role;
 				$_SESSION['email'] = $row->u_email;
 				$_SESSION['token'] =$row->token;
+                }
             }else{
                 echo "password doesnot match";
             }
