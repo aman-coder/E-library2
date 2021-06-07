@@ -9,10 +9,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="booklist">Home</a>
+          <a class="nav-link active" aria-current="page" href="wishlist">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="booklist">Booklist</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="reading">Reading</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -24,7 +27,8 @@
             <li><a class="dropdown-item" href="adminform">Admin Ragistration</a></li>
             <li><a class="dropdown-item" href="addbook">AddBook</a></li>
             <li><a class="dropdown-item" href="profile">Profile</a></li>
-            <li><a class="dropdown-item" href="userlist">Userlist</a></li>
+            <li><a class="dropdown-item" href="adminlist">Adminlist</a></li>
+            <li><a class="dropdown-item" href="readerlist">Readerlist</a></li>
             
           </ul>
         </li>

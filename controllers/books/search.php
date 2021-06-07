@@ -18,9 +18,8 @@ if(isset($_POST['search'])){
    
 }
 $str = App::get('Books')->SearchBox($string,$limit,$offset);
-    $str->execute();
+   $rr= $str->execute();
     $books = $str->fetchAll(PDO::FETCH_OBJ);
-
     require './views/books/search.view.php';
 
 ?>

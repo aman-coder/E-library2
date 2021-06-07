@@ -8,6 +8,25 @@ class Users extends QueryBuilder
     $this->column = array('u_name', 'u_email', 'password', 'role', 'token','status');
     $this->values = array('name', 'email', 'password');
   }
+  public function Selectcondition($u_id,$issue){
+    $column = array('u_id','issue');
+    $values=[
+      ':u_id'=>"'".$u_id."'",
+      ':issue' => "'".$issue."'"];
+    return parent::select('has_book', $column, $values);
+ }
+ public function UserlistAdmin($role){
+  $column = array('role');
+  $values=[
+    ':role' => "'".$role."'"];
+  return parent::select($this->table, $column, $values);
+}
+
+  public function Singledata($u_id){
+    $column = array('u_id');
+    $values=[':u_id'=>"'".$u_id."'"];
+    return parent::select($this->table,$column,$values);
+  }
  
   public function RegisterUser($u_name,$u_email,$password,$role,$token,$status){
       $values=[
