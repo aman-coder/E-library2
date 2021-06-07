@@ -9,7 +9,6 @@
           <?= htmlspecialchars($df->auth_name);?>
         </div>
         <a href="bookreading?b_id=<?= htmlspecialchars($df->b_id);?>" class="card__readmore">Read More</a>
-        <a href="finish?b_id=<?= htmlspecialchars($df->b_id);?>" class="card__readmore">Finish Reading</a>
          </div>
     </div>
 </section>

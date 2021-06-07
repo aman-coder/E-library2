@@ -19,6 +19,7 @@ $router->define([
     'readerlist'=>'controllers/user/readerlist.php',
     'wishlist'=>'controllers/books/wishlist.php',
     'reading'=>'controllers/books/reading.php',
+    'finish'=>'controllers/books/finish.php',
     // 'verifymail' => 'controlers/auth/verifyuser@verifyEmail',
     // 'resetpassword' => 'controllers/auth/verifyuser@passwordreset',
     // 'sendverifymail' => 'SendMail@Verifymail',

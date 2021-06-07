@@ -73,11 +73,40 @@ class Book extends QueryBuilder
     
     }
 
-    public function Delete($bid)
+    public function Deletebook($bid)
     {
       $target = [':b_id'=>"'".$bid."'"];
-      parent::DeleteAll($this->table,'b_id',$target);
+      parent::Delete($this->table,'b_id',$target);
     }
+
+    public function Deleteissue($u_id,$issue)
+    {
+      $column=array('u_id','issue');
+      $target = [':u_id'=>"'".$u_id."'",
+      ':issue'=>"'".$issue."'"];
+      parent::DeleteAll('has_book',$column,$target);
+    }
+
+   
+    public function CountUp($cont,$b_id){
+      $values=[
+       ':count'=>"'".$cont."'",
+    ];
+    $target = [
+      ':b_id'=>"'".$b_id."'"
+    ];
+    $column = ['count'];
+     $i = 0;
+    $upda = [];
+  $queryArray = array_keys($values);
+    while (isset($column[$i])) {
+      $upda += [$column[$i] => $queryArray[$i]];
+      $i++;
+  }
+     return parent::update($this->table,$upda,'b_id',$target);
+    
+    }
+   
 
 }
 ?>

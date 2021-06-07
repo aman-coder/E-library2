@@ -66,6 +66,7 @@ class Users extends QueryBuilder
      return parent::update($this->table,$upda,'token',$target);
     
     }
+
     public function VerificationUpdate($token,$status){
       $values=[
        ':status'=>"'".$status."'",
@@ -85,5 +86,20 @@ class Users extends QueryBuilder
      return parent::update($this->table,$upda,'token',$target);
     
     }
+
+    public function DeleteUser($uid)
+    {
+      $target = [':u_id'=>"'".$uid."'"];
+      parent::DeleteAll($this->table,'u_id',$target);
+    }
+
+    public function DeleteCon($u_id,$role)
+    {
+      $column=array('u_id','issue');
+      $target = [':u_id'=>"'".$u_id."'",
+      ':role'=>"'".$role."'"];
+      parent::DeleteAll('has_book',$column,$target);
+    }
+
 }
 

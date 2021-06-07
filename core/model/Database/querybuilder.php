@@ -65,10 +65,16 @@ class QueryBuilder
       }
 
       public function DeleteAll($table,$bid,$target){
+        $t = implode(',',$bid);
           $tt = implode(',',$target);
-         $sql =  $this->pdo->prepare("DELETE FROM $table WHERE (${bid}) = (${tt})");
+         $sql =  $this->pdo->prepare("DELETE FROM $table WHERE (${t}) = (${tt})");
          $sql->execute();
       }
+      public function Delete($table,$bid,$target){
+        $tt = implode(',',$target);
+       $sql =  $this->pdo->prepare("DELETE FROM $table WHERE (${bid}) = (${tt})");
+       $sql->execute();
+    }
      
 }
 

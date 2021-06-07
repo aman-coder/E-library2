@@ -12,6 +12,13 @@ if(isset($_POST['issue'])){
             if($has>0){
                 echo 'You have to finish the book you are reading in order to issue book';
             }elseif($has==0){
+                $con=App::get('Books')->SingleBook($b_id);
+                $con->execute();
+                $bb=$con->fetch(PDO::FETCH_OBJ);
+                $cont=$bb->count;
+                $up=$cont-1;
+                $ct=App::get('Books')->CountUp($up,$b_id);
+                $rr=$ct->execute([':count'=>$up]);
             App::get('Books')->IssueBook($u_id,$b_id,$issue);
         header("location:/booklist");
             }

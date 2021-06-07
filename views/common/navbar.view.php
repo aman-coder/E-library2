@@ -29,6 +29,7 @@
             <li><a class="dropdown-item" href="profile">Profile</a></li>
             <li><a class="dropdown-item" href="adminlist">Adminlist</a></li>
             <li><a class="dropdown-item" href="readerlist">Readerlist</a></li>
+            <li><a class="dropdown-item" href="finish">History</a></li>
             
           </ul>
         </li>
