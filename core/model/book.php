@@ -106,6 +106,13 @@ class Book extends QueryBuilder
      return parent::update($this->table,$upda,'b_id',$target);
     
     }
+
+    public function selectjoinon($u_id,$issue){
+      $column=array('u_id','issue');
+      $condition = [':u_id'=>"'".$u_id."'",
+      ':issue'=>"'".$issue."'"];
+      return parent::selectjoin('has_book',$this->table,'books.b_id','has_book.b_id',$column,$condition);
+    }
    
 
 }

@@ -35,6 +35,14 @@ class QueryBuilder
          return $stmt;
      }
 
+     public function selectjoin($table,$tablel,$cname,$cnamel, $column, $conditional)
+     {
+         $column = implode(',', $column);
+         $conditional = implode(',', $conditional);
+         $stmt = $this->pdo->prepare("SELECT * FROM ${table} INNER JOIN $tablel ON (${cname}) = (${cnamel}) WHERE (${column}) = (${conditional})");
+         return $stmt;
+     }
+
      public function search($table,$cname,$cnam,$values,$limit,$offset){
         $cname1 = implode(',', $cname);
         $cname2 = implode(',', $cnam);
