@@ -8,8 +8,8 @@
         <div class="card__title"><?= htmlspecialchars($data->b_name);?></div>
         <div class="card__snippet">
           <?= htmlspecialchars($data->auth_name);?>
+          <?= htmlspecialchars($data->retun_date);?>
         </div>
-        <a href="bookreading?b_id=<?= htmlspecialchars($data->b_id);?>" class="card__readmore">Read More</a>
          </div>
     </div>
     <?php endforeach;?>

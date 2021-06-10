@@ -27,12 +27,12 @@ $router->define([
     
 
 
-    'adminform' => 'views/users/admin.registration.view.php',//make it register means adminregisterform
+    'adminform' => 'views/users/admin.registeruser.view.php',//make it register means adminregisterform
     'addbook'=> 'views/books/book_add.view.php',
     'bookread' => 'views/books/book.read.view.php',
     'password' => 'views/users/change.password.view.php',
     'profile' => 'views/users/profile.view.php',
-    'log' => 'views/users/login.php',
+    'signup' => 'views/users/signup.view.php',
     
     ]);
 

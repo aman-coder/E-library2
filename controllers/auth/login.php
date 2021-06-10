@@ -17,14 +17,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     if(empty($u_email))
     {
         $emailErr = "Please enter a email";
-        $_SESSION['emailerr'] = $emailErr;
+        $_SESSION['err'] = $emailErr;
+        header("location:/");
     }
 
     //validate passwrord
     if(empty($password))
     {
         $passErr = "Please enter a password";
-        $_SESSION['passerr'] = $passErr;
+        $_SESSION['err'] = $passErr;
+        header("location:/");
     }
 
     //check if all error are empty
@@ -40,6 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             if(password_verify($password,$pass)){
                 $status=$row->status;
                 if($status == 'active'){
+                    $_SESSION['msg']="Welcome to E-Library";
                 header("location:/booklist");
                 $_SESSION['uid'] =$row->u_id;
                 $_SESSION['username']=$row->u_name;
@@ -48,14 +51,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				$_SESSION['token'] =$row->token;
                 }
             }else{
-                echo "password doesnot match";
+                $_SESSION['err']="password doesnot match";
+                header("location:/");
             }
         } else { 
-            echo "email doesnot match";
+            $_SESSION['err']="email doesnot match";
+            header("location:/");
         }           
+    }if($count == 0 && !password_verify($password,$pass)){
+        $_SESSION['err']="Please Enter Valid data";
+        header("location:/");
     }
 
 }
+
 }
 
 

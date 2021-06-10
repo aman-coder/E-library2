@@ -1,13 +1,23 @@
+<?php
+if (!isset($_SESSION['email'])) {
+	?>
+	<script type="text/javascript">
+		alert("Please login first to access booklist!");
+		 window.location.href="/";
+		</script>
+		<?php
+	exit;
+}?>
 <section class="edit">
     <div class="preview">
     <img src="Resourses\images/<?=htmlspecialchars($bookedit->b_img);?>" style=" height:600px; box-shadow: 2px 2px 10px black;" alt="">
     </div>
-<div class="container">
-<div class="container__wrapper">
-<div class="container__titleofform">
+<div class="containerl">
+<div class="containerl__wrapper">
+<div class="containerl__titleofform">
 <h3>Edit Book Details</h3>
 </div>
-<div class="container__contact">
+<div class="containerl__contact">
 <form action="bookedit?b_id=<?php echo($bookedit->b_id); ?>" method="post" name = "Update" enctype="multipart/form-data">
 <p>
 <label>Book Name:</label>

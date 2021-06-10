@@ -2,68 +2,50 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-?>
-<section class="logins">
-        <div class="logins__form-box">
-            <div class="logins__button-box">
-                <div id="btn"></div>
-                <button type="button" class="logins__toggle-btn" onclick="login()">Log-In</button>
-                <button type="button" class="logins__toggle-btn" onclick="register()">Register</button>
-            </div>
-        
-        <form action="/login" method="POST" id ="login" class="logins__input-group" name ="login1" enctype="multipart/form-data">
-            <input type="email" class="logins__input-field" name="u_email" id="email" placeholder="User Id" required>
-            <span class="invalidFeedback">
-              <div class="redtext">
-                <?php //echo $_SESSION["emailerr"]; ?>
-                </div>
-            </span>
-            <input type="password" class="logins__input-field" name="password" id="password" placeholder="Enter Password" required>
-            <span class="invalidFeedback">
-              <div class="redtext">
-                <?php //echo $_SESSION["passerr"]; ?>
-                </div>
-            </span>
-            <input type="checkbox" class="logins__checkbox" name="check-box" id="check-box"><span>Remember Password</span>
-            <button type="submit" name="login1" class="logins__submit-btn">Login-in</button>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+if (isset($_SESSION['err'])) {
+    ?>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong><?php echo $_SESSION['err']; unset($_SESSION['err']); ?></strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+   <?php } ?>
+<section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="Resourses/images/signin-image.jpg" alt="sing up image"></figure>
+                        <a href="signup" class="form-submit signup-image-link">Create an account</a>
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Sign In</h2>
+                        <form action="/login" method="POST" id ="login" class="register-form" name ="login1" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi  zmdi-email"></i></label>
+                                <input type="e-mail"  name="u_email" id="your_name" placeholder="Your Name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password" id="your_pass" placeholder="Password" required/>
+                            </div>
+                            <div class="form-group">
+                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="login1" id="signin" class="form-submit" value="Log in"/>
+                            </div>
+                        </form>
+                        <div class="social-login">
+                        <button type="button" class="form-submit display-flex-center" data-toggle="modal" data-target="#myModal">
                 Reset Password
             </button>
-            
-        </form>
-       
-        <form action="registration" method="POST" id="register" name="registration" class="logins__input-group"  enctype="multipart/form-data">
-        <input type="text" class="logins__input-field" name="u_name" id="u_name" placeholder="User Name" required>
-        <span class="invalidFeedback">
-              <div class="redtext">
-                <?php echo $_SESSION["user"]; ?>
+                        </div>
+                    </div>
                 </div>
-            </span>
-            <input type="email" class="logins__input-field" name="u_e-mail" id="email" placeholder="User Id" required>
-            <span class="invalidFeedback">
-              <div class="redtext">
-                <?php echo $_SESSION["email"]; ?>
             </div>
-            </span>
-            <input type="password" class="logins__input-field" name="password" id="password" placeholder="Enter Password" required>
-            <span class="invalidFeedback">
-            <div class="redtext">
-                <?php echo $_SESSION["password"]; ?>
-            </div>
-            </span>
-            <input type="password" class="logins__input-field" name="re_password" id="password" placeholder="Confirm Password" required>
-            <span class="invalidFeedback">
-            <div class="redtext">
-                <?php echo $_SESSION["confirm"]; ?>
-                </div>
-            </span>
-            <input type="checkbox" class="logins__checkbox" name="check-box" id="check-box"><span>Accept all terms and conditions</span>
-            <button type="submit" class="logins__submit-btn" name="registration">Register</button>
-        </form>
-        </div>
-    
-</section>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        </section>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -74,7 +56,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <form action="/resetpassword" method="POST">
 		<div class="form-group">
 		Enter Email
-		<input type="text" name="email" class="form-control">
+		<input type="text" name="email" class="form-control" required/>
 		</div>
         </div>
         <div class="modal-footer">

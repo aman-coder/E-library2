@@ -1,4 +1,10 @@
-
+<?php if (isset($_SESSION['msg'])) {
+?>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong><?php echo $_SESSION['msg']; unset($_SESSION['msg']); ?></strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+   <?php } ?>
 <section class="cards">
 <?php foreach($books as $book): ?>
     <div class="card">
@@ -18,12 +24,14 @@
 </section>
 <nav aria-label="Page navigation example" style="display:flex; justify-content:center">
   <ul class="pagination">
+  <?php if($page>1){?>
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
+      <a class="page-link" href="/booklist?page=<?php echo ($page-1) ;?>" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
         <span class="sr-only">Previous</span>
       </a>
     </li>
+    <?php }?>
     
     <?php 
     $pp=$_SESSION['total_page'];
@@ -35,11 +43,13 @@
     } ?>
     <li class="page-item <?php echo "$active";?>"><a class="page-link" href="booklist?page=<?= $i;?>"><?= $i;?></a></li>
     <?php endfor; ?>
+    <?php if($page<$pp){ ?>
     <li class="page-item">
-      <a class="page-link" href="" aria-label="Next">
+      <a class="page-link" href="booklist?page=<?php echo ($page+1) ;?>" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
         <span class="sr-only">Next</span>
       </a>
     </li>
+    <?php } ?>
   </ul>
 </nav>

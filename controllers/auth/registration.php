@@ -34,47 +34,57 @@
         if(empty($u_name))
         {
             $usernameError = "Please enter username";
-            $_SESSION['user'] = $usernameError;
+            $_SESSION['reg'] = $usernameError;
+            header("location:signup");
         }elseif(!preg_match($nameValidation, $u_name)){
             $usernameError = "Name only contain letters";
-            $_SESSION['user'] = $usernameError;
+            $_SESSION['reg'] = $usernameError;
+            header("location:signup");
         }
 
         //Validate Email
         if(empty($u_email)){
             $emailError = "Please enter email address";
-            $_SESSION['email'] = $emailError;
+            $_SESSION['reg'] = $emailError;
+            header("location:signup");
         }elseif(!filter_var($u_email,FILTER_VALIDATE_EMAIL)){
             $emailError = "Please enter the correct format";
-            $_SESSION['email'] = $emailError;
+            $_SESSION['reg'] = $emailError;
+            header("location:signup");
         }elseif($has > 0){
         //validate email to see whether is it present or not
             $presentemail = "E-mail is already being registered";
-            $_SERVER['present'] = $presentemail;
+            $_SERVER['reg'] = $presentemail;
+            header("location:signup");
         
         }
         //Validate Password on length, numeric values
 
         if(empty($password)){
             $passwordError = "Please enter password";
-            $_SESSION['password'] = $passwordError;
+            $_SESSION['reg'] = $passwordError;
+            header("location:signup");
         }elseif(strlen($password < 6)){
             $passwordError = "Password length must be atleast 8 characters";
-            $_SESSION['password'] = $passwordError;
+            $_SESSION['reg'] = $passwordError;
+            header("location:signup");
         }elseif(preg_match($passwordValidation, $password)){
             $passwordError = "Password must be have atleast one numeric value";
-            $_SESSION['password'] = $passwordError;
+            $_SESSION['reg'] = $passwordError;
+            header("location:signup");
         }
 
         //validate confirm Password
         if(empty($re_password))
         {
             $confirmPasswordError = "Please enter password";
-            $_SESSION['confirm'] = $confirmPasswordError;
+            $_SESSION['reg'] = $confirmPasswordError;
+            header("location:signup");
         }else{
             if($password != $re_password){
                 $confirmPasswordError = "Password do not match";
-                $_SESSION['confirm'] = $confirmPasswordError;
+                $_SESSION['reg'] = $confirmPasswordError;
+                header("location:signup");
             }
         }
 
@@ -88,7 +98,10 @@
             //Register user from model function
            App::get('Users')->RegisterUser($u_name ,$u_email,$password,$role,$token,$status);
             App::get('Sendmail')->Verifymail($token);
+                  $_SESSION['reg']="Registered Successfuly Please Check your E-mail to login";
                   header("location:/");
+        }if(empty($u_name) && empty($u_email) && empty($password) && empty($re_password)){
+            $_SESSION['reg']="Please Fill the form";
         }
 
     }

@@ -1,4 +1,13 @@
-
+<?php
+if (!isset($_SESSION['email'])) {
+	?>
+	<script type="text/javascript">
+		alert("Please login first to access booklist!");
+		 window.location.href="/";
+		</script>
+		<?php
+	exit;
+}?>
 <header>
 <center><h3>Welcome To Your Profile Page</h3></center>
 </header>

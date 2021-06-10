@@ -17,7 +17,7 @@
     
 
 }
-.container{
+.containerl{
     display: flex;
     flex: 40%;
     overflow-x: hidden;
@@ -48,6 +48,7 @@
 }
 &__contact form  label{
     display: block;
+    position: relative;
     padding: 1em;
 }
 &__contact form  p{

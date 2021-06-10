@@ -1,9 +1,19 @@
-<div class="container">
-<div class="container__wrapper">
-<div class="container__titleofform">
+<?php
+if (!isset($_SESSION['email'])) {
+	?>
+	<script type="text/javascript">
+		alert("Please login first to access booklist!");
+		 window.location.href="/";
+		</script>
+		<?php
+	exit;
+}?>
+<div class="containerl">
+<div class="containerl__wrapper">
+<div class="containerl__titleofform">
 <h3>Add Book Details</h3>
 </div>
-<div class="container__contact">
+<div class="containerl__contact">
 <form action="add_book" method="post" name = "add" enctype="multipart/form-data">
 <p>
 <label>Book Name:</label>

@@ -7,11 +7,12 @@
 @import './books/booklist';
 @import './books/bookadd';
 @import './books/bookread';
+@import './users/sign&upin';
 
 
 body{
     
-    background-color: rosybrown;
+    background-color: rgba(14, 13, 13, 0.226);
     color: $black;
     // height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

@@ -18,6 +18,9 @@
     overflow-x: hidden;
     border-radius: 50px;
   }
+  .main1 form label{
+    position: relative;
+  }
   @media screen and (max-width: 600px) {
     .row, .main1 {   
       flex-direction: column;

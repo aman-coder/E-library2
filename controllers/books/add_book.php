@@ -1,4 +1,13 @@
-    <?php
+<?php
+if (!isset($_SESSION['email'])) {
+	?>
+	<script type="text/javascript">
+		alert("Please login first to access booklist!");
+		 window.location.href="/";
+		</script>
+		<?php
+	exit;
+}
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         if(isset($_POST['add'])){

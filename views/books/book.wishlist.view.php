@@ -13,5 +13,4 @@
       </div>
     </div>
     <?php endforeach;?>
-    
 </section>
