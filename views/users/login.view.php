@@ -9,6 +9,13 @@ if (isset($_SESSION['err'])) {
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
    <?php } ?>
+  <?php if (isset($_SESSION['rest'])) {
+    ?>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong><?php echo $_SESSION['rest']; unset($_SESSION['rest']); ?></strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+   <?php } ?>
 <section class="sign-in">
             <div class="container">
                 <div class="signin-content">
@@ -37,32 +44,28 @@ if (isset($_SESSION['err'])) {
                             </div>
                         </form>
                         <div class="social-login">
-                        <button type="button" class="form-submit display-flex-center" data-toggle="modal" data-target="#myModal">
-                Reset Password
-            </button>
+                        <button type="button" class="form-submit display-flex-center" data-bs-toggle="modal" data-bs-target="#myModal" data-bs-whatever="@mdo">Reset Password</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-       <center> <h4 class="modal-title" id="myModalLabel">Please Enter Your E-mail</h4><center>
+        <h5 class="modal-title" id="exampleModalLabel">Reset Password</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="/resetpassword" method="POST">
-		<div class="form-group">
-		Enter Email
-		<input type="text" name="email" class="form-control" required/>
-		</div>
-        </div>
-        <div class="modal-footer">
-        <div class="form-group">
-		<input type="submit" name="resetpass" value="Registeration" class="form-control">
-		</div>
+        <form action="/resetpassword" method="POST" id ="resetpass" class="register-form" name ="resetpass" enctype="multipart/form-data">
+          <div class="mb-3">
+            <input type="e-mail" name="email" class="form-control" id="email" placeholder="Please Enter your Registered Email address:" required/>
+          </div>
+          <div class="form-group form-button">
+                                <input type="submit" name="resetpass" id="respass" class="form-submit" value="Resetpass"/>
+                            </div>
+        </form>
       </div>
     </div>
   </div>

@@ -14,7 +14,7 @@ if (!isset($_SESSION['email'])) {
 <section class="cards">
 <div class="card">
 <div class="card__image">
-<img src="https://www.searchpng.com/wp-content/uploads/2019/02/Men-Profile-Image-715x657.png" style="height: 100%; width: 100% ">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS54088iJjHpn-y9FCxGAh5NBEdHugwIXewWQ&usqp=CAU" style="height: 100%; width: 100% ">
 </div>
 <div class="card__content">
 <div class="card__title">
@@ -24,7 +24,7 @@ if (!isset($_SESSION['email'])) {
 <p><?=$_SESSION['email'];?></p>
 </div>
 <div class="card__readmore">
-<a href="#">delete</a>
+<a href="deleteuser?u_id=<?= $_SESSION['uid']; ?>" class="butter1"  rel="noopener noreferrer" role="button" aria-pressed="true" >delete</a>
 </div>
 </div>
 </div>

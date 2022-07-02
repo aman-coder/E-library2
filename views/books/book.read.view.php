@@ -11,40 +11,44 @@
  <h5 style="text-align: center; padding:8px;">Author's name:- <?= htmlspecialchars($users->auth_name);?></h5>
     <h5 style="text-align: center; padding:8px;">Description:-</h5>
     <p style="text-align:justify; padding:8px"><?= htmlspecialchars($users->description)?></p>
-			<a href="bookedit?b_id=<?php echo($users->b_id); ?>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit</a>
-			
-			<button onclick="document.getElementById('id01').style.display='block'" class="btn btn-danger btn-lg active">Delete</button></center>
-			
-			<form action='/issuebookcont' method="POST" name="issue">
-              <p><span style='color: orange';>MARK AS :</span> 
+    <?php if ( $_SESSION['role'] == 'admin') { ?>
+		<center>	<a href="bookedit?b_id=<?php echo($users->b_id); ?>" class="butter1" role="button" aria-pressed="true">Edit</a>
+    <button type="button" class="butter" data-bs-toggle="modal" data-bs-target="#myModal1" data-bs-whatever="@mdo">Delete</button></center>
+			<?php } ?>
+			<form action='/issuebookcont' method="POST" class="issue" >
+              <p><span style='color: black';>MARK AS :</span> 
                 <label>
               <input name="bid" value='<?= $users->b_id;?>' hidden></label>
               <label style='margin-right:1rem;' >
-                  <input id = 'input2' name='action' value='wishlisted' type='radio'/>
+                  <input id = 'input2' name='action' value='wishlisted' type='radio' required/>
                   <span>Add to Wishlist</span>
               </label>
               <label style='margin-right:1rem;'>
-                  <input id='input3' name='action' value='reading'  type='radio'/>
+                  <input id='input3' name='action' value='reading'  type='radio' required />
                   <span>Issue a Book</span>
               </label>
-                <button class="btn modal-trigger" type ="submit" name="issue" value="1" style="background-color: orange;">SAVE RESPONSE</button>
+                <button type ="submit" class="butter2" name="issue" >SAVE RESPONSE</button>
               </p>
               </form>
 				</div>
-			<div id="id01" class="modal">
-			<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-			<!--modal for deletion confirmation as needed -->
-			<form class="modal-content" action="/action_page.php" >
-				<div class="container">
-				<h1>Delete Book</h1>
-				<p>Are you sure you want to delete Book?</p>
-
-				<div class="clearfix">
-				<a  href="bookread?b_id=<?php echo($users->b_id); ?>"  class="btn btn-primary btn-lg active"  rel="noopener noreferrer" role="button" aria-pressed="true">Cancel</a></div>
-					<a href="deletebook?b_id=<?php echo($users->b_id); ?>"   class="btn btn-danger btn-lg active" rel="noopener noreferrer" role="button" aria-pressed="true" onclick="alertedit()">Sure</a></div>
-				</div>
-				
-			</form>  
  </div>
 </div>
-</section>
+<div class="modal fade" id="myModal1" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Book</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <p style="padding-bottom:16px ;">Are you sure you want to delete Book?</p>
+        <form action="/resetpassword" method="POST" id ="resetpass" class="register-form" name ="resetpass" enctype="multipart/form-data">
+          <div class="form-group form-button">
+          <a  href="bookreading?b_id=<?php echo($users->b_id); ?>"  class="butter1"  rel="noopener noreferrer" role="button" aria-pressed="true">Cancel</a>
+          <a href="deletebook?b_id=<?php echo($users->b_id); ?>"   class="butter" rel="noopener noreferrer" role="button" aria-pressed="true" onclick="alertedit()">Sure</a>
+                            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
