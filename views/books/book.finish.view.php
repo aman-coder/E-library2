@@ -1,3 +1,8 @@
+<?php if(empty($datas)){ ?>
+       <center> <h1>OOPS! Nothing Has Been Returned</h1>
+                <h2>Happy Reading</h2>
+      </center>
+        <?php } ?>
 <section class="cards">
 <?php foreach($datas as $data): ?>
     <div class="card">

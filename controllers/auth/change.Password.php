@@ -6,6 +6,7 @@ if(isset($_POST['resetpass'])){
     $data=$row->fetch(PDO::FETCH_OBJ);
     $token=$data->token;
     App::get('Sendmail')->ResetPassword($token);
+    $_SESSION['rest'] = "Reset Password has been send";
     header("location:/");
 }
     if(isset($_POST['reset'])){

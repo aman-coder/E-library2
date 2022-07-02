@@ -90,7 +90,7 @@ class Users extends QueryBuilder
     public function DeleteUser($uid)
     {
       $target = [':u_id'=>"'".$uid."'"];
-      parent::DeleteAll($this->table,'u_id',$target);
+      parent::Delete($this->table,'u_id',$target);
     }
 
     public function DeleteCon($u_id,$role)

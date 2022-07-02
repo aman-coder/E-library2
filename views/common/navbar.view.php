@@ -53,7 +53,7 @@ if (!isset($_SESSION['email'])) {
       
       <form class="d-flex" method="POST" action="/search" name = "search">
         <input class="form-control me-2" type="search" placeholder="Search" name="name" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit" name="search">Search</button>
+        <button class="butter2" type="submit" name="search">Search</button>
       </form>
       </ul>
       </ul>
@@ -116,7 +116,7 @@ if (!isset($_SESSION['email'])) {
       <ul class="navbar-nav ms-auto mb-4 mb-lg-0">
       <form class="d-flex" method="POST" action="/search" name = "search">
         <input class="form-control ms-2" type="search" placeholder="Search" name="name" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit" name="search">Search</button>
+        <button class="butter2" type="submit" name="search">Search</button>
       </form>
       </ul>
     </div>
