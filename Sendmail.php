@@ -12,14 +12,14 @@ class SendMail
         $this->mail->isSMTP();
         $this->mail->Host = 'ssl://smtp.gmail.com';
         $this->mail->SMTPAuth = true;
-        $this->mail->Username = 'amansharma30092000@gmail.com';
-        $this->mail->Password = 'ecrzfymqutoobktc';
+        $this->mail->Username = 'youremail.com';
+        $this->mail->Password = 'please enter your password';
         $this->mail->SMTPSecure = 'ssl';
         $this->mail->Port = 465;
     }
     public function Verifymail($token)
     {
-        $this->mail->setFrom('amansharma30092000@gmail.com', 'E_library');
+        $this->mail->setFrom('youremail.com', 'E_library');
         $this->mail->addAddress($_POST['u_e-mail']);
         $this->mail->Subject = "Verification link";
         $this->mail->isHTML(true);
@@ -38,7 +38,7 @@ class SendMail
 
     public function ResetPassword($token)
     {
-        $this->mail->setFrom('amansharma30092000@gmail.com', 'E_library');
+        $this->mail->setFrom('youremail.com', 'E_library');
         $this->mail->addAddress($_POST['email']);
         $this->mail->Subject = "New password link";
         $this->mail->isHTML(true);
